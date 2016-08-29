@@ -1,0 +1,8 @@
+<a class="card card-beer" href="{{ beer.url | prepend: site.baseurl }}">
+	<h3 class="card-number">{{ beer.batch | default: 'x'}}</h3>
+	<img class="card-img-top img-fluid" src="{{ beer.image }}" alt="" />
+	<div class="card-block">
+		<h4 class="card-title">{{ beer.title | escape }}</h4>
+		<p class="card-text">{{ beer.description | escape}}</p>
+	</div>
+</a>

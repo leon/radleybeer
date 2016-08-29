@@ -1,0 +1,17 @@
+---
+layout: default
+permalink: /blog/
+title: Blog
+---
+
+<div class="white-container">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 col-md-8 col-lg-offset-1 col-lg-8" role="main">
+				{% for post in site.posts %}
+					{% include post.html %}
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</div>

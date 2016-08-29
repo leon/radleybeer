@@ -1,0 +1,77 @@
+.nav-primary-container {
+  position: relative;
+  min-height: 14rem;
+}
+
+.logo {
+  position: relative;
+  display: block;
+  margin: 2rem auto;
+  width: 12rem;
+  height: 12rem;
+}
+
+.navbar-rb {
+  padding: 0 1rem;
+  background-color: rgba(255, 255, 255, 0.8);
+
+  .navbar-nav {
+
+    .nav-item > a {
+      display: block;
+      padding: 0 1rem;
+      line-height: 3rem;
+      border-bottom: 2px solid transparent;
+
+      &:hover,
+      &.nav-item-active {
+        text-decoration: none;
+        border-bottom-color: $brand-primary;
+      }
+    }
+
+    .nav-link {
+      color: $navbar-light-color;
+
+      @include hover-focus {
+        color: $navbar-light-hover-color;
+      }
+    }
+
+    .open > .nav-link,
+    .active > .nav-link,
+    .nav-link.open,
+    .nav-link.active {
+      @include plain-hover-focus {
+        color: $navbar-light-active-color;
+      }
+    }
+  }
+}
+
+// Make block on mobile
+@include media-breakpoint-down(xs) {
+  .navbar-rb {
+    .navbar-nav {
+      .nav-item {
+        float: none;
+        margin-left: 0;
+
+        > a {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .logo {
+    margin-left: 8rem;
+  }
+  .navbar-rb {
+    position: absolute;
+    top: 4rem;
+    right: 6rem;
+  }
+}

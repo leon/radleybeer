@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+
+  {% include head.html %}
+
+  <body style="background-image: url('{{page.bg | default: '/img/bg-3.jpg'}}')">
+    {% include header.html %}
+
+    {{ content }}
+
+    {% include footer.html %}
+
+  </body>
+
+</html>

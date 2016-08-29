@@ -1,0 +1,16 @@
+<div class="container nav-primary-container">
+	<a class="logo" href="/">
+		<img class="img-fluid" src="/img/radleybeer-logo.png"" alt="Radley Logo" />
+	</a>
+	<header class="nav-primary" role="banner">
+		<nav class="navbar navbar-rb">
+			<ul class="nav navbar-nav">
+				{% for my_page in site.pages %}
+					{% if my_page.title %}
+						<li class="nav-item"><a class="page-link" href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title | escape }}</a></li>
+					{% endif %}
+				{% endfor %}
+			</ul>
+		</nav>
+	</header>
+</div>

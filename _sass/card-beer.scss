@@ -1,0 +1,33 @@
+.card-beer {
+	position: relative;
+	min-height: 346px;
+	color: $body-color;
+	background-color: rgba(255, 255, 255, 0.8);
+
+	.card-number {
+		$card-number-size: 3rem;
+
+		position: absolute;
+		right: 1rem;
+		bottom: 6rem;
+
+		width: $card-number-size;
+		height: $card-number-size;
+		line-height: $card-number-size;
+		border-radius: ($card-number-size / 2);
+		text-align: center;
+		background: #fff;
+	}
+}
+
+@include media-breakpoint-up(md) {
+  .card-beer {
+    min-height: 320px;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .card-beer {
+    min-height: 350px;
+  }
+}

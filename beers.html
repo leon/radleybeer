@@ -1,0 +1,15 @@
+---
+layout: default
+permalink: /beers/
+title: Beers
+---
+
+<main class="container" role="main">
+	<div class="row">
+		{% for beer in site.beers %}
+			<div class="col-md-4">
+				{% include beer.html %}
+			</div>
+		{% endfor %}
+	</div>
+</main>

@@ -1,0 +1,13 @@
+<article id="post-{{ post.id }}">
+	<h1><a href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">{{ post.title }}</a></h1>
+
+	{% if post.image %}
+		<img class="img-fluid p-y-1" src="{{post.image}}" alt="" />
+	{% endif %}
+
+	{{ post.content }}
+
+	<footer class="post-footer">
+		<span class="post-date">{{ post.date | | date: "%b %-d, %Y" }}</span>
+	</footer>
+</article>

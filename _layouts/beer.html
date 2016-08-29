@@ -1,0 +1,80 @@
+---
+layout: default
+---
+
+<article class="beer">
+	<section class="beer-main">
+		<div class="container beer-main-container">
+			<div class="beer-main-number">X</div>
+			<h1 class="p-y-3 display-2 text-xs-center">{{ page.title }}</h1>
+
+			<div class="row">
+				<div class="col-xs-12 col-md-8 col-lg-offset-1 col-lg-6">
+					{{ content }}
+				</div>
+				<div class="col-xs-12 col-md-4 col-lg-offset-1 col-lg-3">
+					<div class="beer-info">
+						<div class="card card-block">
+							<h3 class="card-title text-xs-center">Info</h3>
+							<p class="card-text">
+								<dl class="row">
+									<dt class="col-xs-2">Stil</dt>
+									<dd class="col-xs-10">
+										<?php echo get_field('beerstyle')->name; ?>
+									</dd>
+									<dt class="col-xs-2">IBU</dt><dd class="col-xs-10"><?php the_field('ibu'); ?></dd>
+									<dt class="col-xs-2">ABV</dt><dd class="col-xs-10"><?php the_field('abv'); ?>%</dd>
+								</dl>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<div class="white-container">
+		<div class="container">
+			{% include recipe.html %}
+		</div>
+	</div>
+
+	<?php $images = get_field('photos'); if ($images): ?>
+			<section class="beer-photos">
+				<div class="container">
+					<div class="row">
+						<?php foreach($images as $image): ?>
+								<a class="col-sm-6 col-md-4 col-lg-3 m-t-2" href="<?php echo $image['url']; ?>">
+									<img class="img-fluid img-thumbnail" src="<?php echo $image['sizes']['thumbnail']; ?>" alt="<?php echo $image['alt']; ?>" />
+								</a>
+						<?php endforeach; ?>
+					</div>
+				</div>
+			</section>
+	<?php endif; ?>
+
+	<?php if (have_rows('updates')): ?>
+		<section class="beer-updates">
+			<div class="container">
+				<?php while (have_rows('updates')): the_row(); ?>
+					<div class="row">
+						<div class="col-md-8 col-lg-offset-1 col-lg-8 beer-update media">
+							<div class="media-left">
+								<div class="media-object beer-update-date">
+									<?php
+										$date = DateTime::createFromFormat('Y-m-d', get_sub_field('date'));
+										echo $date->format('d/m');
+									?>
+								</div>
+							</div>
+							<div class="media-body m-l-2">
+								<h3 class="media-heading m-t-1"><?php the_sub_field('title'); ?></h3>
+								<?php the_sub_field('content'); ?>
+							</div>
+						</div>
+					</div>
+				<?php endwhile; ?>
+			</div>
+		</section>
+	<?php endif; ?>
+</article>
